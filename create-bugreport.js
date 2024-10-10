@@ -19,6 +19,8 @@ function createBugReport() {
     return;
   }
 
+  ensureBugReportJsonExists();
+
   fs.readFile(logFilePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading log file:', err);
@@ -47,8 +49,6 @@ function createBugReport() {
 }
 
 function createGitHubIssue(content) {
-  ensureBugReportJsonExists();
-
   octokit.issues.create({
     owner,
     repo,

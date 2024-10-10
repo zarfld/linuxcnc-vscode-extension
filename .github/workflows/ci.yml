@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
 
   install:
     runs-on: ubuntu-latest
@@ -26,6 +26,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
+          npm cache clean --force
           if [ -f package.json ]; then
             npm install
           else
@@ -106,10 +107,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Install dependencies
         run: |
+          npm cache clean --force
           if [ -f package.json ]; then
             npm install
           else
