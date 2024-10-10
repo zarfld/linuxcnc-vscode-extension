@@ -27,6 +27,10 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./
+      - name: Save npm error log
+        if: failure()
+        run: cp /home/runner/.npm/_logs/*-debug-0.log ./npm-error.log
+        working-directory: ./
 
   lint:
     runs-on: ubuntu-latest
@@ -84,4 +88,21 @@ jobs:
     steps:
       - name: Generate changelog
         run: npm run changelog
+        working-directory: ./
+
+  error-report:
+    runs-on: ubuntu-latest
+    needs: [install, lint, compile, test, package, upload, version, changelog]
+    if: failure()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Create bug report
+        run: npm run create-bugreport
         working-directory: ./

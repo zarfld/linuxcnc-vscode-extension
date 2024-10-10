@@ -192,7 +192,8 @@
     "test": "mocha --require ts-node/register 'src/**/*.test.ts'",
     "package": "vsce package",
     "version": "standard-version",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "create-bugreport": "node create-bugreport.js"
   },
   "devDependencies": {
     "typescript": "^4.0.3",
@@ -205,6 +206,7 @@
     "chai": "^4.2.0",
     "vsce": "^1.88.0",
     "standard-version": "^9.1.1",
-    "conventional-changelog-cli": "^2.1.1"
+    "conventional-changelog-cli": "^2.1.1",
+    "@octokit/rest": "^18.0.0"
   }
 }
