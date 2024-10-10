@@ -78,3 +78,27 @@ jobs:
     steps:
       - name: Generate changelog
         run: npm run changelog
+
+  error-reporting:
+    runs-on: ubuntu-latest
+    needs: [install, lint, compile, test, package, upload, version, changelog]
+    if: failure()
+    steps:
+      - name: Collect logs
+        run: |
+          mkdir -p logs
+          cp /home/runner/.npm/_logs/*.log logs/
+          cp /home/runner/work/linuxcnc-vscode-extension/linuxcnc-vscode-extension/*.log logs/
+
+      - name: Create bug report issue
+        uses: peter-evans/create-issue-from-file@v2
+        with:
+          title: "CI Pipeline Error Report"
+          content-filepath: logs/error-report.md
+          labels: bug
+
+      - name: Attach logs to issue
+        uses: actions/upload-artifact@v2
+        with:
+          name: error-logs
+          path: logs/
