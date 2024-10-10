@@ -6,7 +6,7 @@
   "publisher": "your-publisher-name",
   "engines": {
     "vscode": "^1.50.0",
-    "node": ">=18"
+    "node": ">=20"
   },
   "categories": [
     "Programming Languages",
@@ -197,11 +197,11 @@
     "create-bugreport": "node create-bugreport.js"
   },
   "devDependencies": {
-    "typescript": "^4.0.3",
+    "typescript": "^5.0.3",
     "@types/vscode": "^1.50.0",
     "eslint": "^9.0.0",
     "prettier": "^2.1.2",
-    "mocha": "^8.2.1",
+    "mocha": "^10.2.1",
     "chai": "^4.2.0",
     "@vscode/vsce": "^2.0.0",
     "standard-version": "^9.1.1",
@@ -211,7 +211,7 @@
     "glob": "^11.0.0",
     "@vscode/test-electron": "^1.0.0",
     "@eslint/config-array": "^0.18.0",
-    "lru-cache": "^6.0.0",
+    "lru-cache": "^11.0.1",
     "mkdirp": "^1.0.0",
     "@eslint/object-schema": "^2.1.4",
     "uuid": "^10.0.0",
