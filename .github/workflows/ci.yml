@@ -27,6 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Copy logs
+        if: always()
         run: |
           mkdir -p logs
           cp /home/runner/.npm/_logs/*.log logs/
