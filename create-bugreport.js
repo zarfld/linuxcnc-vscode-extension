@@ -64,6 +64,7 @@ function createGitHubIssue(content) {
     attachLogFileToIssue(issue.data.number);
   }).catch((err) => {
     console.error('Error creating GitHub issue:', err);
+    ensureBugReportJsonExists();
   });
 }
 
@@ -85,6 +86,18 @@ function attachLogFileToIssue(issueNumber) {
       console.error('Error attaching log file to GitHub issue:', err);
     });
   });
+}
+
+function ensureBugReportJsonExists() {
+  if (!fs.existsSync(bugReportJsonPath)) {
+    fs.writeFile(bugReportJsonPath, JSON.stringify({ issue_number: 0 }), 'utf8', (err) => {
+      if (err) {
+        console.error('Error creating bug report JSON file:', err);
+        return;
+      }
+      console.log('Bug report JSON file created successfully.');
+    });
+  }
 }
 
 createBugReport();
