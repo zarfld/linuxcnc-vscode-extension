@@ -63,6 +63,33 @@ This VSCode extension aims to enhance the development workflow for LinuxCNC user
 - Adaptive Task Configuration: Automatically adjusting compilation and debugging tasks to match the detected HAL environment (real-time or userspace).
 - Environment-Specific Tooling: Tooling designed to support either the preempt-RT or RTAI real-time kernels, ensuring compatibility with the HAL environment in which the user is working.
 
+### Graphical Representation of HAL Signals
+- A graphical view where users can see the relationships between pins, components, and signals. This helps users visualize their HAL configuration as they work.
+
+### Interactive HAL Pin and Signal Monitoring
+- A signal inspector allowing users to view, trace, and monitor the connections between HAL components and pins.
+- Real-time updates of signal values, so users can interactively monitor and diagnose issues with their HAL setup within VSCode.
+
+### Enhanced Signal and Net Management
+- Autocomplete and syntax highlighting for defining and connecting signals using `net`.
+- Suggestions for valid signal names based on existing pins and components in the HAL setup.
+- Error detection for incorrect signal connections, ensuring that signals are correctly linked to pins or components of matching types.
+
+### HAL Architecture Guidance and Thread Management Tools
+- Predefined templates for common HAL architectures, such as motion control setups, spindle control, or I/O expansion.
+- Component-based templates for adding predefined components (e.g., PID controllers, encoders) into the HAL configuration.
+- HAL architecture validation to ensure that the overall architecture adheres to best practices.
+- Advanced thread management tools, including thread configuration assistance and interactive thread assignment tools that visualize thread-to-function relationships.
+- Validation for thread assignments, ensuring that real-time components are correctly assigned to real-time threads.
+
+### Custom Function Support and Version-Specific Assistance
+- Code snippets and templates for creating custom HAL functions, such as `_update` or `_reset`.
+- Function timing and performance analysis tools to ensure custom functions are executed optimally within the HAL framework.
+- Real-time function execution monitoring, helping users diagnose performance bottlenecks in their HAL configurations.
+- HAL version compatibility tools, ensuring backward compatibility with older versions of LinuxCNC.
+- Version-specific syntax highlighting and error checking, ensuring that older versions of LinuxCNC are properly supported.
+- Migration tools to help users transition from older HAL setups to newer versions of LinuxCNC.
+
 ## Installation
 
 1. Clone the repository.

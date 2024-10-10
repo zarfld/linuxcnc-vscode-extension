@@ -19,7 +19,15 @@
     "onCommand:extension.compileComp",
     "onCommand:extension.debugComp",
     "onCommand:extension.enhancedDebugging",
-    "onCommand:extension.runtimeMonitoring"
+    "onCommand:extension.runtimeMonitoring",
+    "onCommand:extension.signalInspector",
+    "onCommand:extension.realTimeUpdates",
+    "onCommand:extension.graphicalRepresentation",
+    "onCommand:extension.enhancedSignalManagement",
+    "onCommand:extension.HALArchitectureGuidance",
+    "onCommand:extension.threadManagementTools",
+    "onCommand:extension.customFunctionSupport",
+    "onCommand:extension.versionSpecificAssistance"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -39,6 +47,38 @@
       {
         "command": "extension.runtimeMonitoring",
         "title": "Runtime Monitoring"
+      },
+      {
+        "command": "extension.signalInspector",
+        "title": "Signal Inspector"
+      },
+      {
+        "command": "extension.realTimeUpdates",
+        "title": "Real-Time Updates"
+      },
+      {
+        "command": "extension.graphicalRepresentation",
+        "title": "Graphical Representation"
+      },
+      {
+        "command": "extension.enhancedSignalManagement",
+        "title": "Enhanced Signal Management"
+      },
+      {
+        "command": "extension.HALArchitectureGuidance",
+        "title": "HAL Architecture Guidance"
+      },
+      {
+        "command": "extension.threadManagementTools",
+        "title": "Thread Management Tools"
+      },
+      {
+        "command": "extension.customFunctionSupport",
+        "title": "Custom Function Support"
+      },
+      {
+        "command": "extension.versionSpecificAssistance",
+        "title": "Version-Specific Assistance"
       }
     ],
     "languages": [
