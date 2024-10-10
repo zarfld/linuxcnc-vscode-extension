@@ -1,0 +1,51 @@
+{
+  "scopeName": "source.comp",
+  "patterns": [
+    {
+      "name": "keyword.control.comp",
+      "match": "\\b(component|pin|function|license)\\b"
+    },
+    {
+      "name": "comment.line.double-slash.comp",
+      "begin": "//",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.comp"
+        }
+      },
+      "end": "$",
+      "name": "comment.line.double-slash.comp"
+    },
+    {
+      "name": "comment.block.comp",
+      "begin": "/\\*",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.comp"
+        }
+      },
+      "end": "\\*/",
+      "name": "comment.block.comp"
+    },
+    {
+      "name": "string.quoted.double.comp",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.comp"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.comp"
+        }
+      },
+      "name": "string.quoted.double.comp"
+    },
+    {
+      "name": "constant.numeric.comp",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    }
+  ]
+}
