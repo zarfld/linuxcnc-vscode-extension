@@ -192,7 +192,8 @@
     "test": "mocha --require ts-node/register 'src/**/*.test.ts'",
     "package": "vsce package",
     "version": "standard-version",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "create-bugreport": "node create-bugreport.js"
   },
   "devDependencies": {
     "typescript": "^4.0.3",
