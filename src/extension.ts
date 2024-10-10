@@ -6,7 +6,15 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('extension.compileComp', compileComp),
         vscode.commands.registerCommand('extension.debugComp', debugComp),
         vscode.commands.registerCommand('extension.enhancedDebugging', enhancedDebugging),
-        vscode.commands.registerCommand('extension.runtimeMonitoring', runtimeMonitoring)
+        vscode.commands.registerCommand('extension.runtimeMonitoring', runtimeMonitoring),
+        vscode.commands.registerCommand('extension.signalInspector', signalInspector),
+        vscode.commands.registerCommand('extension.realTimeUpdates', realTimeUpdates),
+        vscode.commands.registerCommand('extension.graphicalRepresentation', graphicalRepresentation),
+        vscode.commands.registerCommand('extension.enhancedSignalManagement', enhancedSignalManagement),
+        vscode.commands.registerCommand('extension.HALArchitectureGuidance', HALArchitectureGuidance),
+        vscode.commands.registerCommand('extension.threadManagementTools', threadManagementTools),
+        vscode.commands.registerCommand('extension.customFunctionSupport', customFunctionSupport),
+        vscode.commands.registerCommand('extension.versionSpecificAssistance', versionSpecificAssistance)
     );
 }
 
@@ -185,6 +193,198 @@ async function runtimeMonitoring() {
     terminal.sendText(`start`);
 
     // Add runtime monitoring commands here
+}
+
+async function signalInspector() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add signal inspector commands here
+}
+
+async function realTimeUpdates() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add real-time updates commands here
+}
+
+async function graphicalRepresentation() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add graphical representation commands here
+}
+
+async function enhancedSignalManagement() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add enhanced signal management commands here
+}
+
+async function HALArchitectureGuidance() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add HAL architecture guidance commands here
+}
+
+async function threadManagementTools() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add thread management tools commands here
+}
+
+async function customFunctionSupport() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add custom function support commands here
+}
+
+async function versionSpecificAssistance() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add version-specific assistance commands here
 }
 
 export function deactivate() {}
