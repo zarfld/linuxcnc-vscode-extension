@@ -69,6 +69,31 @@ pin out float my_output_pin "An output pin";
 param rw float my_param "A parameter";
 function _ "Main function";
 license "GPL";
+`,
+        step_generator: `component stepgen "A step generator component";
+pin in float velocity-cmd "Velocity command";
+pin out float position-fb "Position feedback";
+pin out bit enable "Enable signal";
+function _ "Main function";
+license "GPL";
+`,
+        encoder: `component encoder "An encoder component";
+pin out float position-fb "Position feedback";
+pin in float scale "Scale factor";
+function _ "Main function";
+license "GPL";
+`,
+        pwm_generator: `component pwmgen "A PWM generator component";
+pin in float value "PWM value";
+pin out bit enable "Enable signal";
+function _ "Main function";
+license "GPL";
+`,
+        dac: `component dac "A DAC component";
+pin in float value "DAC value";
+pin out bit enable "Enable signal";
+function _ "Main function";
+license "GPL";
 `
     };
 

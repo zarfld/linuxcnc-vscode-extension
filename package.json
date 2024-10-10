@@ -95,6 +95,12 @@
         "scopeName": "source.comp",
         "path": "./syntaxes/comp.tmLanguage.json"
       }
+    ],
+    "snippets": [
+      {
+        "language": "comp",
+        "path": "./snippets/comp.json"
+      }
     ]
   },
   "scripts": {
