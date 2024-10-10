@@ -25,5 +25,13 @@
   "indentationRules": {
     "increaseIndentPattern": "^.*\\{[^}\"']*$",
     "decreaseIndentPattern": "^\\s*\\}"
+  },
+  "conditionalCompilation": {
+    "directives": ["#ifdef", "#ifndef", "#endif"]
+  },
+  "directives": {
+    "option": {
+      "settings": ["userspace", "no_auto_bind"]
+    }
   }
 }
