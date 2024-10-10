@@ -168,3 +168,80 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## License
 
 This project is licensed under the MIT License.
+
+## CI Pipeline Setup Using GitHub Actions
+
+To set up a CI pipeline for your VSCode extension repository using GitHub Actions, follow these steps:
+
+### Key Tasks for CI Pipeline
+
+1. **Code Checkout and Environment Setup**
+   - **Task**: Checkout the code from the GitHub repository and set up the environment (Node.js, npm, TypeScript).
+   - **Goal**: Ensure that the build environment is ready for compiling and testing the extension.
+   - **GitHub Action**: `actions/checkout@v2`, `actions/setup-node@v2`.
+
+2. **Dependency Installation**
+   - **Task**: Install the required npm dependencies as defined in the `package.json`.
+   - **Goal**: Ensure all the necessary libraries and tools are available for building the VSCode extension.
+   - **GitHub Action**: `npm install`.
+
+3. **Code Linting and Formatting Check**
+   - **Task**: Run linting and code formatting checks using a tool like **ESLint** or **Prettier**.
+   - **Goal**: Ensure that the code follows the project's style guidelines and is free from syntax errors.
+   - **GitHub Action**: `npm run lint`.
+
+4. **TypeScript Compilation (if applicable)**
+   - **Task**: Compile the TypeScript source code (if the extension uses TypeScript) to ensure the code can be successfully transpiled to JavaScript.
+   - **Goal**: Verify that the code compiles correctly.
+   - **GitHub Action**: `npm run compile` (assuming `tsc` or a similar command is configured in the `package.json`).
+
+5. **Unit Testing**
+   - **Task**: Run unit tests for the extension to ensure that its functionality is correct. Use a testing framework like **Mocha** or **Jest**.
+   - **Goal**: Validate that the code works as expected and that any new changes do not introduce bugs.
+   - **GitHub Action**: `npm test` or `npm run test`.
+
+6. **VSCode Extension Packaging**
+   - **Task**: Package the VSCode extension using the **vsce** (Visual Studio Code Extension Manager) tool.
+   - **Goal**: Create a `.vsix` file for the VSCode extension that can be installed or uploaded to the marketplace.
+   - **GitHub Action**: `vsce package`.
+
+7. **Artifact Upload (for `.vsix` file)**
+   - **Task**: Upload the generated `.vsix` file as an artifact of the CI process, so it can be downloaded and tested later.
+   - **Goal**: Make the packaged VSCode extension available for download.
+   - **GitHub Action**: `actions/upload-artifact@v2`.
+
+8. **Optional: Version Bumping**
+   - **Task**: Automatically bump the version number in `package.json` for each successful build based on predefined rules (e.g., patch, minor, major).
+   - **Goal**: Ensure that each new release has an updated version number, especially if publishing automatically.
+   - **GitHub Action**: Use tools like `standard-version` or a custom script to bump versions.
+
+9. **Optional: Automated Publishing to VSCode Marketplace**
+   - **Task**: Publish the extension to the **Visual Studio Code Marketplace** using the **vsce** tool and a Personal Access Token (PAT) from Azure DevOps.
+   - **Goal**: Automatically deploy new versions of the extension to the marketplace after successful builds.
+   - **GitHub Action**: `vsce publish`.
+
+10. **Optional: Automated Changelog Generation**
+    - **Task**: Automatically generate or update the changelog based on commit history.
+    - **Goal**: Keep track of changes and improvements to the extension with each release.
+    - **GitHub Action**: Use tools like `conventional-changelog` or `auto-changelog`.
+
+### Explanation of Tasks:
+- **Checkout code**: Retrieves the current state of the repository.
+- **Node.js setup**: Prepares the environment to run Node.js applications.
+- **Install dependencies**: Installs the dependencies defined in `package.json`.
+- **Linting**: Runs ESLint to ensure code quality.
+- **Compilation**: Compiles TypeScript into JavaScript (if applicable).
+- **Testing**: Runs unit tests to validate functionality.
+- **Packaging**: Uses `vsce` to package the extension into a `.vsix` file.
+- **Artifact upload**: Makes the packaged `.vsix` file available for download.
+- **Publishing**: (Optional) Publishes the extension to the VSCode Marketplace if a PAT is provided.
+
+### Key Tools Used:
+- **GitHub Actions**: For running CI tasks on GitHub-hosted runners.
+- **Node.js and npm**: For managing dependencies, compiling, and testing.
+- **ESLint**: For linting the codebase.
+- **Mocha/Jest**: For running unit tests.
+- **vsce**: For packaging and publishing the VSCode extension.
+
+### Conclusion:
+By configuring GitHub Actions as described, you can automate the **CI pipeline** for your VSCode extension without needing a self-hosted runner. This process handles **build, test, package**, and optionally **publish** tasks, ensuring that your extension is correctly built and tested with each commit or pull request.
