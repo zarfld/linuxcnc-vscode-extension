@@ -55,7 +55,7 @@ function createGitHubIssue(content) {
 }
 
 function attachLogFileToIssue(issueNumber) {
-  fs.readFile(logFilePath, (err, data) => {
+  fs.readFile(logFilePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading log file for attachment:', err);
       return;
@@ -65,7 +65,7 @@ function attachLogFileToIssue(issueNumber) {
       owner,
       repo,
       issue_number: issueNumber,
-      body: 'Attaching npm error log file.',
+      body: `Attaching npm error log file:\n\n\`\`\`\n${data}\n\`\`\``,
     }).then(() => {
       console.log('Log file attached to GitHub issue successfully.');
     }).catch((err) => {
