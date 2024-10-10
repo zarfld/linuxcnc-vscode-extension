@@ -22,9 +22,81 @@ async function compileComp() {
     }
 
     const filePath = document.fileName;
+
+    const installOrCompile = await vscode.window.showQuickPick(['--install', '--compile'], {
+        placeHolder: 'Choose whether to install or compile the component'
+    });
+
+    if (!installOrCompile) {
+        vscode.window.showErrorMessage('No option selected.');
+        return;
+    }
+
+    const realTimeOrUserSpace = await vscode.window.showQuickPick(['--realtime', '--userspace'], {
+        placeHolder: 'Choose whether to compile for real-time or userspace'
+    });
+
+    if (!realTimeOrUserSpace) {
+        vscode.window.showErrorMessage('No option selected.');
+        return;
+    }
+
     const terminal = vscode.window.createTerminal('halcompile');
     terminal.show();
-    terminal.sendText(`halcompile --install ${filePath}`);
+    terminal.sendText(`halcompile ${installOrCompile} ${realTimeOrUserSpace} ${filePath}`);
+
+    // Predefined templates for common components
+    const templates = {
+        basic: `component my_component "A basic HAL component";
+pin in bit my_input_pin "An input pin";
+pin out bit my_output_pin "An output pin";
+function _ "Main function";
+license "GPL";
+`,
+        advanced: `component my_advanced_component "An advanced HAL component";
+pin in float my_input_pin "An input pin";
+pin out float my_output_pin "An output pin";
+param rw float my_param "A parameter";
+function _ "Main function";
+license "GPL";
+`
+    };
+
+    const templateChoice = await vscode.window.showQuickPick(Object.keys(templates), {
+        placeHolder: 'Choose a template for your component'
+    });
+
+    if (templateChoice) {
+        const template = templates[templateChoice];
+        const edit = new vscode.WorkspaceEdit();
+        edit.insert(document.uri, new vscode.Position(0, 0), template);
+        await vscode.workspace.applyEdit(edit);
+    }
+
+    // Syntax validation and error highlighting
+    const diagnostics: vscode.Diagnostic[] = [];
+    const text = document.getText();
+    const lines = text.split('\n');
+
+    lines.forEach((line, i) => {
+        if (line.includes('pin') && !line.match(/pin (in|out) (bit|float|s32|u32) \w+/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid pin definition',
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
+        if (line.includes('param') && !line.match(/param (rw|ro) (bit|float|s32|u32) \w+/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid parameter definition',
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
+    });
+
+    const diagnosticCollection = vscode.languages.createDiagnosticCollection('comp');
+    diagnosticCollection.set(document.uri, diagnostics);
 }
 
 async function debugComp() {

@@ -3,7 +3,7 @@
   "patterns": [
     {
       "name": "keyword.control.comp",
-      "match": "\\b(component|pin|function|license)\\b"
+      "match": "\\b(component|pin|function|license|param)\\b"
     },
     {
       "name": "comment.line.double-slash.comp",
