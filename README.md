@@ -160,6 +160,11 @@ This VSCode extension aims to enhance the development workflow for LinuxCNC user
 
 - Ensure that `halcompile` and `halrun` are installed and available in your system's PATH.
 - Check the VSCode terminal for error messages if the compilation or debugging commands fail.
+- Ensure all dependencies in `package.json` are correctly listed.
+- Verify that the `@vscode/test-electron` package is properly installed and accessible.
+- Run `npm cache clean --force` and then `npm install` to resolve any caching issues.
+- Ensure that the `uuid` dependency is updated to version 7 or higher.
+- Ensure that the `rimraf` dependency is updated to version 4 or higher.
 
 ## Contributing
 
