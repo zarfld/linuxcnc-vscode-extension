@@ -49,6 +49,7 @@ This VSCode extension aims to enhance the development workflow for LinuxCNC user
 ### Enhanced Code Templates and Snippets
 - Component Snippets Based on Examples: Predefined code snippets based on the examples provided in the latest documentation, including a full template for a basic HAL component and snippets for common HAL component patterns.
 - Task Templates for HAL Components: Ready-to-use task templates for compiling and testing HAL components.
+- Predefined Snippets for Canonical Devices: Provide snippets for canonical devices such as step generators, encoders, PWM generators, and DACs. These snippets are based on canonical device usage examples from the documentation.
 
 ### Inline Documentation and Context-Sensitive Help
 - Tooltips and Inline Docs: Tooltips for key HAL directives (e.g., `pin`, `param`, `function`, `option`) based on the most recent documentation.
