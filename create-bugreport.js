@@ -4,6 +4,7 @@ const { Octokit } = require('@octokit/rest');
 
 const logFilePath = path.join(__dirname, 'npm-error.log');
 const bugReportFilePath = path.join(__dirname, 'bugreport.txt');
+const bugReportJsonPath = path.join(__dirname, 'bugreport.json');
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
@@ -48,6 +49,13 @@ function createGitHubIssue(content) {
     body: content,
   }).then((issue) => {
     console.log('GitHub issue created successfully.');
+    fs.writeFile(bugReportJsonPath, JSON.stringify({ issue_number: issue.data.number }), 'utf8', (err) => {
+      if (err) {
+        console.error('Error writing bug report JSON file:', err);
+        return;
+      }
+      console.log('Bug report JSON file created successfully.');
+    });
     attachLogFileToIssue(issue.data.number);
   }).catch((err) => {
     console.error('Error creating GitHub issue:', err);
