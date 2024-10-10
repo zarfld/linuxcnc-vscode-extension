@@ -6,7 +6,7 @@
   "publisher": "your-publisher-name",
   "engines": {
     "vscode": "^1.50.0",
-    "node": ">=16"
+    "node": ">=18"
   },
   "categories": [
     "Programming Languages",
