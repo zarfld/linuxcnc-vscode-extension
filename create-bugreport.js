@@ -14,6 +14,11 @@ const owner = 'zarfld';
 const repo = 'linuxcnc-vscode-extension';
 
 function createBugReport() {
+  if (!fs.existsSync(logFilePath)) {
+    console.error('Log file does not exist:', logFilePath);
+    return;
+  }
+
   fs.readFile(logFilePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading log file:', err);
