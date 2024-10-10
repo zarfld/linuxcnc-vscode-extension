@@ -208,5 +208,8 @@
     "standard-version": "^9.1.1",
     "conventional-changelog-cli": "^2.1.1",
     "@octokit/rest": "^18.0.0"
+  },
+  "dependencies": {
+    "@octokit/rest": "^18.0.0"
   }
 }

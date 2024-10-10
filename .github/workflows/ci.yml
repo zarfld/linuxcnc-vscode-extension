@@ -103,6 +103,16 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./
+
       - name: Create bug report
         run: npm run create-bugreport
+        working-directory: ./
+
+      - name: Attach npm error log to GitHub issue
+        run: |
+          ISSUE_NUMBER=$(node -e "console.log(require('./bugreport.json').issue_number)")
+          gh issue comment $ISSUE_NUMBER --body "$(cat npm-error.log)"
         working-directory: ./
