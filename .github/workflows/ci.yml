@@ -26,6 +26,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
+          npm cache clean --force
           if [ -f package.json ]; then
             npm install
           else
@@ -110,6 +111,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          npm cache clean --force
           if [ -f package.json ]; then
             npm install
           else
