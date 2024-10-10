@@ -47,6 +47,8 @@ function createBugReport() {
 }
 
 function createGitHubIssue(content) {
+  ensureBugReportJsonExists();
+
   octokit.issues.create({
     owner,
     repo,
@@ -64,7 +66,6 @@ function createGitHubIssue(content) {
     attachLogFileToIssue(issue.data.number);
   }).catch((err) => {
     console.error('Error creating GitHub issue:', err);
-    ensureBugReportJsonExists();
   });
 }
 
