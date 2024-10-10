@@ -26,6 +26,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: npm install
+        working-directory: ./
 
   lint:
     runs-on: ubuntu-latest
@@ -33,6 +34,7 @@ jobs:
     steps:
       - name: Run ESLint
         run: npm run lint
+        working-directory: ./
 
   compile:
     runs-on: ubuntu-latest
@@ -40,6 +42,7 @@ jobs:
     steps:
       - name: Compile TypeScript
         run: npm run compile
+        working-directory: ./
 
   test:
     runs-on: ubuntu-latest
@@ -47,6 +50,7 @@ jobs:
     steps:
       - name: Run tests
         run: npm test
+        working-directory: ./
 
   package:
     runs-on: ubuntu-latest
@@ -54,6 +58,7 @@ jobs:
     steps:
       - name: Package VSCode extension
         run: npm run package
+        working-directory: ./
 
   upload:
     runs-on: ubuntu-latest
@@ -71,6 +76,7 @@ jobs:
     steps:
       - name: Bump version
         run: npm run version
+        working-directory: ./
 
   changelog:
     runs-on: ubuntu-latest
@@ -78,3 +84,4 @@ jobs:
     steps:
       - name: Generate changelog
         run: npm run changelog
+        working-directory: ./
