@@ -119,6 +119,8 @@ jobs:
         working-directory: ./
 
       - name: Attach npm error log to GitHub issue
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           ISSUE_NUMBER=$(node -e "console.log(require('./bugreport.json').issue_number)")
           gh issue comment $ISSUE_NUMBER --body "$(cat npm-error.log)"
