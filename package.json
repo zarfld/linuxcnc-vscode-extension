@@ -208,13 +208,13 @@
     "conventional-changelog-cli": "^2.1.1",
     "@octokit/rest": "^18.0.0",
     "@npmcli/package-json": "^1.0.0",
-    "glob": "^9.0.0",
+    "glob": "^11.0.0",
     "@vscode/test-electron": "^1.0.0",
     "@eslint/config-array": "^0.18.0",
     "lru-cache": "^6.0.0",
     "mkdirp": "^1.0.0",
     "@eslint/object-schema": "^2.1.4",
-    "uuid": "^7.0.0",
+    "uuid": "^10.0.0",
     "rimraf": "^6.0.1"
   },
   "dependencies": {
