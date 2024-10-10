@@ -25,7 +25,12 @@ jobs:
     needs: setup
     steps:
       - name: Install dependencies
-        run: npm install
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "package.json not found, skipping npm install"
+          fi
         working-directory: ./
       - name: Save npm error log
         if: failure()
@@ -104,7 +109,12 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "package.json not found, skipping npm install"
+          fi
         working-directory: ./
 
       - name: Ensure bugreport.json is created
