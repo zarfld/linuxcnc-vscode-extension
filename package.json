@@ -210,7 +210,7 @@
     "@npmcli/package-json": "^1.0.0",
     "glob": "^9.0.0",
     "@vscode/test-electron": "^1.0.0",
-    "@eslint/config-array": "^1.0.0",
+    "@eslint/config-array": "^0.18.0",
     "lru-cache": "^6.0.0",
     "mkdirp": "^1.0.0",
     "@eslint/object-schema": "^1.0.0",
