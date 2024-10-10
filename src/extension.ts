@@ -4,7 +4,9 @@ import * as cp from 'child_process';
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('extension.compileComp', compileComp),
-        vscode.commands.registerCommand('extension.debugComp', debugComp)
+        vscode.commands.registerCommand('extension.debugComp', debugComp),
+        vscode.commands.registerCommand('extension.enhancedDebugging', enhancedDebugging),
+        vscode.commands.registerCommand('extension.runtimeMonitoring', runtimeMonitoring)
     );
 }
 
@@ -93,6 +95,22 @@ license "GPL";
                 vscode.DiagnosticSeverity.Error
             ));
         }
+        if (line.includes('option') && !line.match(/option (userspace|no_auto_bind)/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid option directive',
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
+        if (line.includes('#ifdef') || line.includes('#ifndef')) {
+            if (!line.match(/#ifdef \w+/) && !line.match(/#ifndef \w+/)) {
+                diagnostics.push(new vscode.Diagnostic(
+                    new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                    'Invalid conditional compilation directive',
+                    vscode.DiagnosticSeverity.Error
+                ));
+            }
+        }
     });
 
     const diagnosticCollection = vscode.languages.createDiagnosticCollection('comp');
@@ -119,6 +137,54 @@ async function debugComp() {
     terminal.sendText(`halrun -I`);
     terminal.sendText(`loadrt ${soFilePath}`);
     terminal.sendText(`start`);
+}
+
+async function enhancedDebugging() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add enhanced debugging commands here
+}
+
+async function runtimeMonitoring() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+
+    const document = editor.document;
+    if (document.languageId !== 'comp') {
+        vscode.window.showErrorMessage('The active file is not a .comp file.');
+        return;
+    }
+
+    const filePath = document.fileName;
+    const soFilePath = filePath.replace('.comp', '.so');
+    const terminal = vscode.window.createTerminal('halrun');
+    terminal.show();
+    terminal.sendText(`halrun -I`);
+    terminal.sendText(`loadrt ${soFilePath}`);
+    terminal.sendText(`start`);
+
+    // Add runtime monitoring commands here
 }
 
 export function deactivate() {}

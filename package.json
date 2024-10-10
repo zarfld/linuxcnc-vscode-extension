@@ -17,7 +17,9 @@
     "onCommand:extension.debugComp",
     "onFileSystem:comp",
     "onCommand:extension.compileComp",
-    "onCommand:extension.debugComp"
+    "onCommand:extension.debugComp",
+    "onCommand:extension.enhancedDebugging",
+    "onCommand:extension.runtimeMonitoring"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -29,6 +31,14 @@
       {
         "command": "extension.debugComp",
         "title": "Debug .comp File"
+      },
+      {
+        "command": "extension.enhancedDebugging",
+        "title": "Enhanced Debugging"
+      },
+      {
+        "command": "extension.runtimeMonitoring",
+        "title": "Runtime Monitoring"
       }
     ],
     "languages": [
