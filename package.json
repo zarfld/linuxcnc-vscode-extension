@@ -206,6 +206,7 @@
     "chai": "^4.2.0",
     "vsce": "^1.88.0",
     "standard-version": "^9.1.1",
-    "conventional-changelog-cli": "^2.1.1"
+    "conventional-changelog-cli": "^2.1.1",
+    "@octokit/rest": "^18.0.0"
   }
 }
