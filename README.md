@@ -91,6 +91,51 @@ This VSCode extension aims to enhance the development workflow for LinuxCNC user
 - Version-specific syntax highlighting and error checking, ensuring that older versions of LinuxCNC are properly supported.
 - Migration tools to help users transition from older HAL setups to newer versions of LinuxCNC.
 
+### Build Process Integration
+- Custom Build Tasks: Predefined build tasks in the extension that align with LinuxCNC’s development build process.
+  - Automatic setup of the autoconf/automake build system.
+  - Running make and install commands from within VSCode.
+  - Ensuring compatibility with different versions (e.g., 2.7, 2.8, devel) based on the project’s LinuxCNC version.
+
+### Environment Setup Wizards
+- Guided wizards to automate the creation of a LinuxCNC development environment.
+  - Setting up compilers, libraries, and dependencies.
+  - Configuring the correct kernel (e.g., real-time kernel) and debugging tools.
+  - Ensuring that development targets align with either simulation mode or real-time mode.
+
+### Version-Specific Build Configurations
+- Support for Multiple Versions: Ensure the extension can switch between different build configurations for LinuxCNC versions (e.g., 2.7, 2.8, devel).
+  - Each version might require specific build flags or dependencies that the extension should handle dynamically.
+
+### Advanced Debugging Tools
+- Integrated Debugging for Real-Time LinuxCNC: Integrate GDB or other real-time debugging tools directly into VSCode for easier diagnosis of real-time HAL components.
+  - Automatic generation of GDB launch configurations for real-time processes.
+- Enhanced Logging and Traceability: Features to easily enable or disable detailed logging, trace real-time events, and visualize system logs related to HAL components.
+- Backtrace Generation for Crashes: Automatically generate and display backtraces when LinuxCNC crashes.
+
+### HAL Component Testing Framework
+- Unit Testing for HAL Components: Introduce a testing framework for HAL components, allowing users to write and run unit tests directly within VSCode.
+  - Mocks or stubs for hardware interfaces.
+  - Simulations to validate HAL component behavior without real hardware.
+- Component Documentation Generator: Automatically generate documentation for custom HAL components based on their source code.
+  - Extract information such as pins, parameters, and functions and generate Markdown or HTML documentation files.
+
+### Interactive HAL Testing and Simulation
+- Simulation Mode Setup: Create a feature where the extension sets up and runs LinuxCNC in simulation mode, allowing developers to test their components without real hardware.
+  - Provide interactive feedback on the component's behavior in the simulated environment.
+
+### Contextual Documentation and HAL API Autocompletion
+- In-Editor Documentation Links: Provide direct links to specific sections of the developer manuals when users are working on relevant parts of their code.
+- HAL API Autocompletion: Provide autocomplete and inline documentation for commonly used HAL functions, making it easier for developers to integrate HAL components and understand the API.
+
+### Example Projects and Code Samples
+- Built-in Example Projects: Provide example LinuxCNC projects based on the developer manuals. These could be loaded within VSCode as templates, allowing developers to quickly start building and testing their own components.
+
+### Git Integration and Git Hooks for Build and Test Automation
+- Git Version Control for HAL Components: Integrate Git support for version controlling LinuxCNC configurations, HAL components, and source code.
+  - Provide direct links to the LinuxCNC GitHub repository for referencing upstream changes.
+- Git Hooks for Build and Test Automation: Add Git hooks to automatically run tests and compile HAL components before each commit, ensuring code quality.
+
 ## Installation
 
 1. Clone the repository.

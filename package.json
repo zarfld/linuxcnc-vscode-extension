@@ -27,7 +27,23 @@
     "onCommand:extension.HALArchitectureGuidance",
     "onCommand:extension.threadManagementTools",
     "onCommand:extension.customFunctionSupport",
-    "onCommand:extension.versionSpecificAssistance"
+    "onCommand:extension.versionSpecificAssistance",
+    "onCommand:extension.realTimeDebugging",
+    "onCommand:extension.logging",
+    "onCommand:extension.unitTesting",
+    "onCommand:extension.buildProcessIntegration",
+    "onCommand:extension.environmentSetupWizards",
+    "onCommand:extension.versionSpecificBuildConfigurations",
+    "onCommand:extension.advancedDebuggingTools",
+    "onCommand:extension.backtraceGeneration",
+    "onCommand:extension.HALComponentTestingFramework",
+    "onCommand:extension.autoDocumentation",
+    "onCommand:extension.interactiveHALTesting",
+    "onCommand:extension.contextualDocumentation",
+    "onCommand:extension.HALAPIAutocompletion",
+    "onCommand:extension.exampleProjects",
+    "onCommand:extension.GitIntegration",
+    "onCommand:extension.GitHooks"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -79,6 +95,70 @@
       {
         "command": "extension.versionSpecificAssistance",
         "title": "Version-Specific Assistance"
+      },
+      {
+        "command": "extension.realTimeDebugging",
+        "title": "Real-Time Debugging"
+      },
+      {
+        "command": "extension.logging",
+        "title": "Logging"
+      },
+      {
+        "command": "extension.unitTesting",
+        "title": "Unit Testing"
+      },
+      {
+        "command": "extension.buildProcessIntegration",
+        "title": "Build Process Integration"
+      },
+      {
+        "command": "extension.environmentSetupWizards",
+        "title": "Environment Setup Wizards"
+      },
+      {
+        "command": "extension.versionSpecificBuildConfigurations",
+        "title": "Version-Specific Build Configurations"
+      },
+      {
+        "command": "extension.advancedDebuggingTools",
+        "title": "Advanced Debugging Tools"
+      },
+      {
+        "command": "extension.backtraceGeneration",
+        "title": "Backtrace Generation"
+      },
+      {
+        "command": "extension.HALComponentTestingFramework",
+        "title": "HAL Component Testing Framework"
+      },
+      {
+        "command": "extension.autoDocumentation",
+        "title": "Auto-Documentation"
+      },
+      {
+        "command": "extension.interactiveHALTesting",
+        "title": "Interactive HAL Testing"
+      },
+      {
+        "command": "extension.contextualDocumentation",
+        "title": "Contextual Documentation"
+      },
+      {
+        "command": "extension.HALAPIAutocompletion",
+        "title": "HAL API Autocompletion"
+      },
+      {
+        "command": "extension.exampleProjects",
+        "title": "Example Projects"
+      },
+      {
+        "command": "extension.GitIntegration",
+        "title": "Git Integration"
+      },
+      {
+        "command": "extension.GitHooks",
+        "title": "Git Hooks"
       }
     ],
     "languages": [
