@@ -107,15 +107,15 @@ jobs:
         run: npm install
         working-directory: ./
 
-      - name: Create bug report
-        run: npm run create-bugreport
-        working-directory: ./
-
       - name: Ensure bugreport.json is created
         run: |
           if [ ! -f ./bugreport.json ]; then
             echo '{"issue_number": 0}' > ./bugreport.json
           fi
+        working-directory: ./
+
+      - name: Create bug report
+        run: npm run create-bugreport
         working-directory: ./
 
       - name: Attach npm error log to GitHub issue
