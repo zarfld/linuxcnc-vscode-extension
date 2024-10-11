@@ -29,10 +29,12 @@ jobs:
           npm cache clean --force
           if [ -f package.json ]; then
             npm install
-            npm run postinstall
           else
             echo "package.json not found, skipping npm install"
           fi
+        working-directory: ./
+      - name: Run postinstall script
+        run: npm run postinstall
         working-directory: ./
       - name: Save npm error log
         if: failure()
