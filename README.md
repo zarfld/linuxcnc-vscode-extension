@@ -158,6 +158,10 @@ This VSCode extension aims to enhance the development workflow for LinuxCNC user
 - Press `Ctrl+Shift+P` to open the command palette.
 - Type `Debug .comp File` and press `Enter`.
 
+### Syntax Highlighting
+- The extension provides custom syntax highlighting for `.comp` files, ensuring key elements like `component`, `pin`, `function`, `license`, and other related keywords are highlighted.
+- Comments, strings, and numeric values are clearly differentiated for better readability.
+
 ## Troubleshooting
 
 - Ensure that `halcompile` and `halrun` are installed and available in your system's PATH.

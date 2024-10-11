@@ -57,5 +57,25 @@
         "param ro u32 ${1:param_name} \"${2:description}\";"
       ]
     }
+  },
+  "keywords": [
+    "component",
+    "pin",
+    "function",
+    "license",
+    "param",
+    "option"
+  ],
+  "comments": {
+    "lineComment": "//",
+    "blockComment": ["/*", "*/"]
+  },
+  "strings": {
+    "doubleQuote": "\"",
+    "singleQuote": "'"
+  },
+  "numbers": {
+    "integer": "\\b\\d+\\b",
+    "float": "\\b\\d+\\.\\d+\\b"
   }
 }
