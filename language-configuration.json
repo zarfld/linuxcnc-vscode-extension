@@ -45,6 +45,17 @@
         "pin in u32 ${1:pin_name} \"${2:description}\";",
         "pin out u32 ${1:pin_name} \"${2:description}\";"
       ]
+    },
+    "param": {
+      "types": ["float", "s32", "u32"],
+      "templates": [
+        "param rw float ${1:param_name} \"${2:description}\";",
+        "param ro float ${1:param_name} \"${2:description}\";",
+        "param rw s32 ${1:param_name} \"${2:description}\";",
+        "param ro s32 ${1:param_name} \"${2:description}\";",
+        "param rw u32 ${1:param_name} \"${2:description}\";",
+        "param ro u32 ${1:param_name} \"${2:description}\";"
+      ]
     }
   }
 }
