@@ -1,0 +1,57 @@
+{
+  "ADC Input Component": {
+    "prefix": "adcin",
+    "body": [
+      "component adcin \"An ADC input component\";",
+      "pin in float value \"ADC value\";",
+      "pin out bit enable \"Enable signal\";",
+      "function _ \"Main function\";",
+      "license \"GPL\";"
+    ],
+    "description": "Snippet for ADC input component with proper naming conventions"
+  },
+  "Digital Input Component": {
+    "prefix": "digin",
+    "body": [
+      "component digin \"A digital input component\";",
+      "pin in bit value \"Digital input value\";",
+      "pin out bit enable \"Enable signal\";",
+      "function _ \"Main function\";",
+      "license \"GPL\";"
+    ],
+    "description": "Snippet for digital input component with proper naming conventions"
+  },
+  "Digital Output Component": {
+    "prefix": "digout",
+    "body": [
+      "component digout \"A digital output component\";",
+      "pin out bit value \"Digital output value\";",
+      "pin out bit enable \"Enable signal\";",
+      "function _ \"Main function\";",
+      "license \"GPL\";"
+    ],
+    "description": "Snippet for digital output component with proper naming conventions"
+  },
+  "Encoder Component": {
+    "prefix": "encoder",
+    "body": [
+      "component encoder \"An encoder component\";",
+      "pin out float position-fb \"Position feedback\";",
+      "pin in float scale \"Scale factor\";",
+      "function _ \"Main function\";",
+      "license \"GPL\";"
+    ],
+    "description": "Snippet for encoder component with proper naming conventions"
+  },
+  "ADC Output Component": {
+    "prefix": "adcout",
+    "body": [
+      "component adcout \"An ADC output component\";",
+      "pin out float value \"ADC output value\";",
+      "pin out bit enable \"Enable signal\";",
+      "function _ \"Main function\";",
+      "license \"GPL\";"
+    ],
+    "description": "Snippet for ADC output component with proper naming conventions"
+  }
+}

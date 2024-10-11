@@ -110,6 +110,30 @@ pin in float value "DAC value";
 pin out bit enable "Enable signal";
 function _ "Main function";
 license "GPL";
+`,
+        adcin: `component adcin "An ADC input component";
+pin in float value "ADC value";
+pin out bit enable "Enable signal";
+function _ "Main function";
+license "GPL";
+`,
+        digin: `component digin "A digital input component";
+pin in bit value "Digital input value";
+pin out bit enable "Enable signal";
+function _ "Main function";
+license "GPL";
+`,
+        digout: `component digout "A digital output component";
+pin out bit value "Digital output value";
+pin out bit enable "Enable signal";
+function _ "Main function";
+license "GPL";
+`,
+        adcout: `component adcout "An ADC output component";
+pin out float value "ADC output value";
+pin out bit enable "Enable signal";
+function _ "Main function";
+license "GPL";
 `
     };
 
@@ -159,6 +183,43 @@ license "GPL";
                     vscode.DiagnosticSeverity.Error
                 ));
             }
+        }
+
+        // Validation rules for canonical device interfaces
+        if (line.includes('adcin') && !line.match(/adcin\.\w+/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid adcin naming convention',
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
+        if (line.includes('digin') && !line.match(/digin\.\w+/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid digin naming convention',
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
+        if (line.includes('digout') && !line.match(/digout\.\w+/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid digout naming convention',
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
+        if (line.includes('encoder') && !line.match(/encoder\.\w+/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid encoder naming convention',
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
+        if (line.includes('adcout') && !line.match(/adcout\.\w+/)) {
+            diagnostics.push(new vscode.Diagnostic(
+                new vscode.Range(new vscode.Position(i, 0), new vscode.Position(i, line.length)),
+                'Invalid adcout naming convention',
+                vscode.DiagnosticSeverity.Error
+            ));
         }
     });
 

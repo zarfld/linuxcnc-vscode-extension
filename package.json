@@ -189,7 +189,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/@vscode/test-electron/install",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --ext .ts --rule 'naming-convention: [error, {selector: default, format: [camelCase, PascalCase, snake_case]}]'",
     "test": "mocha --require ts-node/register 'src/**/*.test.ts'",
     "package": "vsce package",
     "version": "standard-version",
@@ -219,5 +219,60 @@
   },
   "dependencies": {
     "@octokit/rest": "^18.0.0"
+  },
+  "eslintConfig": {
+    "rules": {
+      "naming-convention": [
+        "error",
+        {
+          "selector": "default",
+          "format": ["camelCase", "PascalCase", "snake_case"]
+        },
+        {
+          "selector": "variable",
+          "format": ["camelCase", "UPPER_CASE"]
+        },
+        {
+          "selector": "function",
+          "format": ["camelCase", "PascalCase"]
+        },
+        {
+          "selector": "parameter",
+          "format": ["camelCase"]
+        },
+        {
+          "selector": "property",
+          "format": ["camelCase", "PascalCase", "snake_case"]
+        },
+        {
+          "selector": "method",
+          "format": ["camelCase"]
+        },
+        {
+          "selector": "class",
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": "interface",
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": "typeAlias",
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": "enum",
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": "enumMember",
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": "typeParameter",
+          "format": ["PascalCase"]
+        }
+      ]
+    }
   }
 }
