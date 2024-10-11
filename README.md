@@ -41,6 +41,8 @@ This VSCode extension aims to enhance the development workflow for LinuxCNC user
 ### Pin Definition Enhancements
 - Improved Pin Definitions: Autocomplete for pin types like `bit`, `float`, `s32`, etc., ensuring valid types are used for HAL components.
 - Pin-to-parameter mapping suggestions, helping users connect pins with component parameters effectively.
+- Autocomplete suggestions for pin types such as `bit`, `float`, `s32`, and `u32`.
+- Predefined pin definition templates for common pin definitions, such as input pins, output pins, and various data types.
 
 ### Expanded Error Handling and Validation
 - Real-Time Error Checking: Real-time validation against common mistakes highlighted in the documentation, such as incorrect pin types, missing required functions (like `_update`), and misconfiguration of `addf` for real-time threads.

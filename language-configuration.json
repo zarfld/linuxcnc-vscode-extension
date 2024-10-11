@@ -32,6 +32,19 @@
   "directives": {
     "option": {
       "settings": ["userspace", "no_auto_bind"]
+    },
+    "pin": {
+      "types": ["bit", "float", "s32", "u32"],
+      "templates": [
+        "pin in bit ${1:pin_name} \"${2:description}\";",
+        "pin out bit ${1:pin_name} \"${2:description}\";",
+        "pin in float ${1:pin_name} \"${2:description}\";",
+        "pin out float ${1:pin_name} \"${2:description}\";",
+        "pin in s32 ${1:pin_name} \"${2:description}\";",
+        "pin out s32 ${1:pin_name} \"${2:description}\";",
+        "pin in u32 ${1:pin_name} \"${2:description}\";",
+        "pin out u32 ${1:pin_name} \"${2:description}\";"
+      ]
     }
   }
 }
